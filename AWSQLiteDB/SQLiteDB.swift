@@ -188,7 +188,7 @@ class SQLiteDB {
         result = sqlite3_step(statement)
         if result != SQLITE_OK && result != SQLITE_DONE {
             if result == SQLITE_ROW {
-                NSLog("SQLiteDB: query in execute")
+                NSLog("SQLiteDB:query in execute")
                 return true
             }
             else{

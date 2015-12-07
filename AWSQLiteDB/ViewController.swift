@@ -35,10 +35,7 @@ class ViewController: UIViewController {
             print("\(id):\(name)")
         }
         let sql_select_2 = "select * from test"
-        let rows_2 = db.execute(sql_select_2)
-        
-        
-        
+        db.execute(sql_select_2)
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,46 +45,3 @@ class ViewController: UIViewController {
 
 
 }
-extension ViewController {
-    private func test_c(){
-        let cache_dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
-        let db_filename = "\(cache_dir)/test.db"
-        NSLog("db_filename:%@", db_filename)
-        var err_message : UnsafeMutablePointer<Int8> = nil
-        var db :COpaquePointer = nil
-        var rc = sqlite3_open(db_filename,&db)
-        NSLog("rc:%d", rc)
-        let sql_db = "create table company (id integer PRIMARY KEY AUTOINCREMENT,name CHAR(32) NOT NULL)"
-        rc = sqlite3_exec(db, sql_db, nil, nil, &err_message)
-        NSLog("rc:%d", rc)
-        var m = String.fromCString(err_message)
-        print(m)
-        let sql_insert = "insert into company (name) values('aaa')"
-        rc = sqlite3_exec(db, sql_insert, nil, nil, &err_message)
-        NSLog("rc:%d", rc)
-        m = String.fromCString(err_message)
-        print(m)
-        let sql_select = "select * from company"
-        rc = sqlite3_exec(db, sql_select, nil, nil, &err_message)
-        NSLog("rc:%d", rc)
-        m = String.fromCString(err_message)
-        print(m)
-        var statement : COpaquePointer = nil
-        rc = sqlite3_prepare_v2(db, "insert into company (name) values (?)", -1, &statement, nil)
-        NSLog("rc:%d", rc)
-        rc = sqlite3_bind_text(statement, 1, "adow", -1, SQLITE_TRANSIENT)
-//        rc = sqlite3_bind_text(statement, 1, NSString(string: "adow").UTF8String, -1, nil)
-//        rc = sqlite3_bind_text(statement, 1, "adow", -1, nil)
-        NSLog("rc:%d", rc)
-        rc = sqlite3_step(statement)
-        NSLog("rc:%d", rc)
-        m = String.fromCString(sqlite3_errmsg(db))
-        print(m)
-        
-        var statement_query : COpaquePointer = nil
-        rc = sqlite3_prepare_v2(db, "select * from company", -1, &statement_query, nil)
-        sqlite3_step(statement_query)
-        
-    }
-}
-
