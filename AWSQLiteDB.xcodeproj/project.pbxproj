@@ -13,6 +13,8 @@
 		68A4786B1C15DAC700E1AC93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A4786A1C15DAC700E1AC93 /* Assets.xcassets */; };
 		68A4786E1C15DAC700E1AC93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A4786C1C15DAC700E1AC93 /* LaunchScreen.storyboard */; };
 		68A478791C15DAC700E1AC93 /* AWSQLiteDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A478781C15DAC700E1AC93 /* AWSQLiteDBTests.swift */; };
+		68A478841C15DB5100E1AC93 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A478831C15DB5100E1AC93 /* libsqlite3.0.tbd */; };
+		68A478871C15DBBD00E1AC93 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A478861C15DBBD00E1AC93 /* SQLiteDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,9 @@
 		68A478741C15DAC700E1AC93 /* AWSQLiteDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSQLiteDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A478781C15DAC700E1AC93 /* AWSQLiteDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSQLiteDBTests.swift; sourceTree = "<group>"; };
 		68A4787A1C15DAC700E1AC93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68A478831C15DB5100E1AC93 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		68A478851C15DB7300E1AC93 /* AWSQLiteDB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSQLiteDB-Bridging-Header.h"; sourceTree = "<group>"; };
+		68A478861C15DBBD00E1AC93 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A478841C15DB5100E1AC93 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,7 @@
 		68A478571C15DAC700E1AC93 = {
 			isa = PBXGroup;
 			children = (
+				68A478831C15DB5100E1AC93 /* libsqlite3.0.tbd */,
 				68A478621C15DAC700E1AC93 /* AWSQLiteDB */,
 				68A478771C15DAC700E1AC93 /* AWSQLiteDBTests */,
 				68A478611C15DAC700E1AC93 /* Products */,
@@ -77,12 +84,14 @@
 		68A478621C15DAC700E1AC93 /* AWSQLiteDB */ = {
 			isa = PBXGroup;
 			children = (
+				68A478861C15DBBD00E1AC93 /* SQLiteDB.swift */,
 				68A478631C15DAC700E1AC93 /* AppDelegate.swift */,
 				68A478651C15DAC700E1AC93 /* ViewController.swift */,
 				68A478671C15DAC700E1AC93 /* Main.storyboard */,
 				68A4786A1C15DAC700E1AC93 /* Assets.xcassets */,
 				68A4786C1C15DAC700E1AC93 /* LaunchScreen.storyboard */,
 				68A4786F1C15DAC700E1AC93 /* Info.plist */,
+				68A478851C15DB7300E1AC93 /* AWSQLiteDB-Bridging-Header.h */,
 			);
 			path = AWSQLiteDB;
 			sourceTree = "<group>";
@@ -197,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A478871C15DBBD00E1AC93 /* SQLiteDB.swift in Sources */,
 				68A478661C15DAC700E1AC93 /* ViewController.swift in Sources */,
 				68A478641C15DAC700E1AC93 /* AppDelegate.swift in Sources */,
 			);
@@ -329,6 +339,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSQLiteDB/AWSQLiteDB-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -340,6 +351,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSQLiteDB/AWSQLiteDB-Bridging-Header.h";
 			};
 			name = Release;
 		};
