@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		682801C51C16B10200DC60BD /* AWSQLiteDBFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 682801C41C16B10200DC60BD /* AWSQLiteDBFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		682801D71C16B10200DC60BD /* AWSQLiteDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682801C21C16B10200DC60BD /* AWSQLiteDB.framework */; };
+		682801D81C16B10200DC60BD /* AWSQLiteDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 682801C21C16B10200DC60BD /* AWSQLiteDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		682801E01C16B15700DC60BD /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A478831C15DB5100E1AC93 /* libsqlite3.0.tbd */; };
+		682801E41C16B86900DC60BD /* AWSQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682801E31C16B86900DC60BD /* AWSQLiteDB.swift */; };
 		68A478641C15DAC700E1AC93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A478631C15DAC700E1AC93 /* AppDelegate.swift */; };
 		68A478661C15DAC700E1AC93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A478651C15DAC700E1AC93 /* ViewController.swift */; };
 		68A478691C15DAC700E1AC93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A478671C15DAC700E1AC93 /* Main.storyboard */; };
@@ -14,10 +19,16 @@
 		68A4786E1C15DAC700E1AC93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A4786C1C15DAC700E1AC93 /* LaunchScreen.storyboard */; };
 		68A478791C15DAC700E1AC93 /* AWSQLiteDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A478781C15DAC700E1AC93 /* AWSQLiteDBTests.swift */; };
 		68A478841C15DB5100E1AC93 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A478831C15DB5100E1AC93 /* libsqlite3.0.tbd */; };
-		68A478871C15DBBD00E1AC93 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A478861C15DBBD00E1AC93 /* SQLiteDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		682801D51C16B10200DC60BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68A478581C15DAC700E1AC93 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 682801C11C16B10200DC60BD;
+			remoteInfo = AWSQLiteDBFramework;
+		};
 		68A478751C15DAC700E1AC93 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 68A478581C15DAC700E1AC93 /* Project object */;
@@ -27,8 +38,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		682801DE1C16B10300DC60BD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				682801D81C16B10200DC60BD /* AWSQLiteDB.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		68A478601C15DAC700E1AC93 /* AWSQLiteDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWSQLiteDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		682801C21C16B10200DC60BD /* AWSQLiteDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSQLiteDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		682801C41C16B10200DC60BD /* AWSQLiteDBFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSQLiteDBFramework.h; sourceTree = "<group>"; };
+		682801C61C16B10200DC60BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		682801D21C16B10200DC60BD /* AWSQLiteDBFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSQLiteDBFrameworkTests.swift; sourceTree = "<group>"; };
+		682801D41C16B10200DC60BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		682801E21C16B2BC00DC60BD /* AWSQLiteDBFramework-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSQLiteDBFramework-Bridging-Header.h"; sourceTree = "<group>"; };
+		682801E31C16B86900DC60BD /* AWSQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSQLiteDB.swift; sourceTree = "<group>"; };
+		68A478601C15DAC700E1AC93 /* AWSQLiteDB-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AWSQLiteDB-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A478631C15DAC700E1AC93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68A478651C15DAC700E1AC93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		68A478681C15DAC700E1AC93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,15 +72,23 @@
 		68A4787A1C15DAC700E1AC93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68A478831C15DB5100E1AC93 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		68A478851C15DB7300E1AC93 /* AWSQLiteDB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSQLiteDB-Bridging-Header.h"; sourceTree = "<group>"; };
-		68A478861C15DBBD00E1AC93 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		682801BE1C16B10200DC60BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				682801E01C16B15700DC60BD /* libsqlite3.0.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		68A4785D1C15DAC700E1AC93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				68A478841C15DB5100E1AC93 /* libsqlite3.0.tbd in Frameworks */,
+				682801D71C16B10200DC60BD /* AWSQLiteDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +102,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		682801C31C16B10200DC60BD /* AWSQLiteDBFramework */ = {
+			isa = PBXGroup;
+			children = (
+				682801E31C16B86900DC60BD /* AWSQLiteDB.swift */,
+				682801C41C16B10200DC60BD /* AWSQLiteDBFramework.h */,
+				682801E21C16B2BC00DC60BD /* AWSQLiteDBFramework-Bridging-Header.h */,
+				682801C61C16B10200DC60BD /* Info.plist */,
+			);
+			path = AWSQLiteDBFramework;
+			sourceTree = "<group>";
+		};
+		682801D11C16B10200DC60BD /* AWSQLiteDBFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				682801D21C16B10200DC60BD /* AWSQLiteDBFrameworkTests.swift */,
+				682801D41C16B10200DC60BD /* Info.plist */,
+			);
+			path = AWSQLiteDBFrameworkTests;
+			sourceTree = "<group>";
+		};
 		68A478571C15DAC700E1AC93 = {
 			isa = PBXGroup;
 			children = (
 				68A478831C15DB5100E1AC93 /* libsqlite3.0.tbd */,
 				68A478621C15DAC700E1AC93 /* AWSQLiteDB */,
 				68A478771C15DAC700E1AC93 /* AWSQLiteDBTests */,
+				682801C31C16B10200DC60BD /* AWSQLiteDBFramework */,
+				682801D11C16B10200DC60BD /* AWSQLiteDBFrameworkTests */,
 				68A478611C15DAC700E1AC93 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,8 +137,9 @@
 		68A478611C15DAC700E1AC93 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				68A478601C15DAC700E1AC93 /* AWSQLiteDB.app */,
+				68A478601C15DAC700E1AC93 /* AWSQLiteDB-Demo.app */,
 				68A478741C15DAC700E1AC93 /* AWSQLiteDBTests.xctest */,
+				682801C21C16B10200DC60BD /* AWSQLiteDB.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,7 +147,6 @@
 		68A478621C15DAC700E1AC93 /* AWSQLiteDB */ = {
 			isa = PBXGroup;
 			children = (
-				68A478861C15DBBD00E1AC93 /* SQLiteDB.swift */,
 				68A478631C15DAC700E1AC93 /* AppDelegate.swift */,
 				68A478651C15DAC700E1AC93 /* ViewController.swift */,
 				68A478671C15DAC700E1AC93 /* Main.storyboard */,
@@ -107,22 +169,53 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		682801BF1C16B10200DC60BD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				682801C51C16B10200DC60BD /* AWSQLiteDBFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		68A4785F1C15DAC700E1AC93 /* AWSQLiteDB */ = {
+		682801C11C16B10200DC60BD /* AWSQLiteDBFramework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 68A4787D1C15DAC700E1AC93 /* Build configuration list for PBXNativeTarget "AWSQLiteDB" */;
+			buildConfigurationList = 682801DD1C16B10300DC60BD /* Build configuration list for PBXNativeTarget "AWSQLiteDBFramework" */;
 			buildPhases = (
-				68A4785C1C15DAC700E1AC93 /* Sources */,
-				68A4785D1C15DAC700E1AC93 /* Frameworks */,
-				68A4785E1C15DAC700E1AC93 /* Resources */,
+				682801BD1C16B10200DC60BD /* Sources */,
+				682801BE1C16B10200DC60BD /* Frameworks */,
+				682801BF1C16B10200DC60BD /* Headers */,
+				682801C01C16B10200DC60BD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AWSQLiteDB;
+			name = AWSQLiteDBFramework;
+			productName = AWSQLiteDBFramework;
+			productReference = 682801C21C16B10200DC60BD /* AWSQLiteDB.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		68A4785F1C15DAC700E1AC93 /* AWSQLiteDB-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68A4787D1C15DAC700E1AC93 /* Build configuration list for PBXNativeTarget "AWSQLiteDB-Demo" */;
+			buildPhases = (
+				68A4785C1C15DAC700E1AC93 /* Sources */,
+				68A4785D1C15DAC700E1AC93 /* Frameworks */,
+				68A4785E1C15DAC700E1AC93 /* Resources */,
+				682801DE1C16B10300DC60BD /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				682801D61C16B10200DC60BD /* PBXTargetDependency */,
+			);
+			name = "AWSQLiteDB-Demo";
 			productName = AWSQLiteDB;
-			productReference = 68A478601C15DAC700E1AC93 /* AWSQLiteDB.app */;
+			productReference = 68A478601C15DAC700E1AC93 /* AWSQLiteDB-Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		68A478731C15DAC700E1AC93 /* AWSQLiteDBTests */ = {
@@ -153,6 +246,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "秦 道平";
 				TargetAttributes = {
+					682801C11C16B10200DC60BD = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
 					68A4785F1C15DAC700E1AC93 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
@@ -175,13 +271,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				68A4785F1C15DAC700E1AC93 /* AWSQLiteDB */,
+				68A4785F1C15DAC700E1AC93 /* AWSQLiteDB-Demo */,
 				68A478731C15DAC700E1AC93 /* AWSQLiteDBTests */,
+				682801C11C16B10200DC60BD /* AWSQLiteDBFramework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		682801C01C16B10200DC60BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		68A4785E1C15DAC700E1AC93 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,11 +306,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		682801BD1C16B10200DC60BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				682801E41C16B86900DC60BD /* AWSQLiteDB.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		68A4785C1C15DAC700E1AC93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68A478871C15DBBD00E1AC93 /* SQLiteDB.swift in Sources */,
 				68A478661C15DAC700E1AC93 /* ViewController.swift in Sources */,
 				68A478641C15DAC700E1AC93 /* AppDelegate.swift in Sources */,
 			);
@@ -223,9 +334,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		682801D61C16B10200DC60BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 682801C11C16B10200DC60BD /* AWSQLiteDBFramework */;
+			targetProxy = 682801D51C16B10200DC60BD /* PBXContainerItemProxy */;
+		};
 		68A478761C15DAC700E1AC93 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 68A4785F1C15DAC700E1AC93 /* AWSQLiteDB */;
+			target = 68A4785F1C15DAC700E1AC93 /* AWSQLiteDB-Demo */;
 			targetProxy = 68A478751C15DAC700E1AC93 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -250,6 +366,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		682801D91C16B10300DC60BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AWSQLiteDBFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDBFramework;
+				PRODUCT_NAME = AWSQLiteDB;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSQLiteDBFramework/AWSQLiteDBFramework-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		682801DA1C16B10300DC60BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AWSQLiteDBFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDBFramework;
+				PRODUCT_NAME = AWSQLiteDB;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSQLiteDBFramework/AWSQLiteDBFramework-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		68A4787B1C15DAC700E1AC93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -335,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = AWSQLiteDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDB;
@@ -347,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = AWSQLiteDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDB;
@@ -382,6 +542,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		682801DD1C16B10300DC60BD /* Build configuration list for PBXNativeTarget "AWSQLiteDBFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				682801D91C16B10300DC60BD /* Debug */,
+				682801DA1C16B10300DC60BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		68A4785B1C15DAC700E1AC93 /* Build configuration list for PBXProject "AWSQLiteDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -391,7 +559,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		68A4787D1C15DAC700E1AC93 /* Build configuration list for PBXNativeTarget "AWSQLiteDB" */ = {
+		68A4787D1C15DAC700E1AC93 /* Build configuration list for PBXNativeTarget "AWSQLiteDB-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				68A4787E1C15DAC700E1AC93 /* Debug */,

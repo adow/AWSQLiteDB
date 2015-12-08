@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AWSQLiteDB
 
 let SQLITE_STATIC = unsafeBitCast(0, sqlite3_destructor_type.self)
 let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
@@ -29,6 +30,7 @@ extension ViewController {
         let cache_dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
         let db_filename = "\(cache_dir)/sql.db"
         NSLog("db_filename:%@", db_filename)
+        
         let db = SQLiteDB(path: db_filename)
         let sql_createtable = "create table test (id INTEGER PRIMARY KEY AUTOINCREMENT, name CHAR(32) NOT NULL)"
         var result = db.execute(sql_createtable)

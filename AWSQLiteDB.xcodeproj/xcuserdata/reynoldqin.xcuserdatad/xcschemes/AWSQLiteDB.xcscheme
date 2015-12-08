@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "68A4785F1C15DAC700E1AC93"
-               BuildableName = "AWSQLiteDB.app"
-               BlueprintName = "AWSQLiteDB"
+               BuildableName = "AWSQLiteDB-Demo.app"
+               BlueprintName = "AWSQLiteDB-Demo"
                ReferencedContainer = "container:AWSQLiteDB.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -38,13 +38,23 @@
                ReferencedContainer = "container:AWSQLiteDB.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "682801CA1C16B10200DC60BD"
+               BuildableName = "AWSQLiteDBFrameworkTests.xctest"
+               BlueprintName = "AWSQLiteDBFrameworkTests"
+               ReferencedContainer = "container:AWSQLiteDB.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "68A4785F1C15DAC700E1AC93"
-            BuildableName = "AWSQLiteDB.app"
-            BlueprintName = "AWSQLiteDB"
+            BuildableName = "AWSQLiteDB-Demo.app"
+            BlueprintName = "AWSQLiteDB-Demo"
             ReferencedContainer = "container:AWSQLiteDB.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "68A4785F1C15DAC700E1AC93"
-            BuildableName = "AWSQLiteDB.app"
-            BlueprintName = "AWSQLiteDB"
+            BuildableName = "AWSQLiteDB-Demo.app"
+            BlueprintName = "AWSQLiteDB-Demo"
             ReferencedContainer = "container:AWSQLiteDB.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,8 +95,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "68A4785F1C15DAC700E1AC93"
-            BuildableName = "AWSQLiteDB.app"
-            BlueprintName = "AWSQLiteDB"
+            BuildableName = "AWSQLiteDB-Demo.app"
+            BlueprintName = "AWSQLiteDB-Demo"
             ReferencedContainer = "container:AWSQLiteDB.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

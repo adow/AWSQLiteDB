@@ -9,14 +9,14 @@
 import Foundation
 
 // MARK: - SQLValue
-enum SQLValue {
+public enum SQLValue {
     case Integer(Int)
     case Float(Double)
     case Text(String)
     case Blob(NSData)
     case Null
     
-    init(value: Any) {
+    public init(value: Any) {
         switch value {
         case let val as NSData:
             self = .Blob(val)
@@ -36,7 +36,7 @@ enum SQLValue {
         
     }
     
-    var integer: Int? {
+    public var integer: Int? {
         switch self {
         case .Integer(let value):
             return value
@@ -45,7 +45,7 @@ enum SQLValue {
         }
     }
     
-    var double: Double? {
+    public var double: Double? {
         switch self {
         case .Float(let value):
             return value
@@ -54,7 +54,7 @@ enum SQLValue {
         }
     }
     
-    var string: String? {
+    public var string: String? {
         switch self {
         case .Text(let value):
             return value
@@ -63,7 +63,7 @@ enum SQLValue {
         }
     }
     
-    var data: NSData? {
+    public var data: NSData? {
         switch self {
         case .Blob(let value):
             return value
@@ -72,7 +72,7 @@ enum SQLValue {
         }
     }
     
-    var date: NSDate? {
+    public var date: NSDate? {
         switch self {
         case .Float(let value):
             return NSDate(timeIntervalSince1970: value)
@@ -82,22 +82,22 @@ enum SQLValue {
     }
 }
 // MARK: - SQLiteColumn
-struct SQLiteColumn {
-    var value:SQLValue?
-    var name:String?
-    var type:CInt
+public struct SQLiteColumn {
+    public var value:SQLValue?
+    public var name:String?
+    public var type:CInt
 }
 
 // MARK: - SQLiteDB
-enum SQLiteDBError:ErrorType {
+public enum SQLiteDBError:ErrorType {
     case SharedDBIsNotNilError
     case DBPathIsNilError
 }
-class SQLiteDB {
-    static var sharedDB : SQLiteDB!
+public class SQLiteDB {
+    public static var sharedDB : SQLiteDB!
     private var db : COpaquePointer
     private var dbPath :String?
-    typealias SQLiteRow = [String:SQLiteColumn]
+    public typealias SQLiteRow = [String:SQLiteColumn]
     /// Do not use this
     private init (){
         self.dbPath = nil
@@ -107,7 +107,7 @@ class SQLiteDB {
         }
         catch { }
     }
-    init(path:String? = nil) {
+    public init(path:String? = nil) {
         self.dbPath = path
         self.db = nil
         do {
@@ -121,7 +121,7 @@ class SQLiteDB {
     }
     
     /// 设置一个全局共享的数据库
-    class func setupSharedDBPath(path:String) throws ->SQLiteDB!{
+    public class func setupSharedDBPath(path:String) throws ->SQLiteDB!{
         if sharedDB != nil {
             throw SQLiteDBError.SharedDBIsNotNilError
         }
@@ -142,7 +142,7 @@ class SQLiteDB {
         }
         return true
     }
-    func close() -> Bool {
+    public func close() -> Bool {
         guard self.db != nil else {
             return false
         }
@@ -157,7 +157,7 @@ class SQLiteDB {
     }
     // MARK: error
     /// 最近的一次出错信息
-    var lastErrMessage:String?{
+    public var lastErrMessage:String?{
         get{
             let err = sqlite3_errmsg(self.db)
             let msg = String.fromCString(err)
@@ -172,11 +172,11 @@ class SQLiteDB {
     }
     // MARK: api
     /// 最后插入的一条数据的 id
-    var lastInsertedRowID:Int64 {
+    public var lastInsertedRowID:Int64 {
         return sqlite3_last_insert_rowid(self.db)
     }
     /// 绑定值
-    func bindValue(value:Any, toIndex index:Int, inStatement statement:COpaquePointer){
+    public func bindValue(value:Any, toIndex index:Int, inStatement statement:COpaquePointer){
         let idx = Int32(index)
         switch value {
         case let v as Bool:
@@ -196,7 +196,7 @@ class SQLiteDB {
         }
     }
     /// 执行修改语句
-    func execute(sql:String, parameters:Any...) -> Bool {
+    public func execute(sql:String, parameters:Any...) -> Bool {
         NSLog("SQLiteDB:\(sql)")
         guard self.db != nil else {
             return false
@@ -228,7 +228,7 @@ class SQLiteDB {
         return true
     }
     /// 执行查询语句
-    func query(sql:String, parameters:Any...)->[SQLiteRow] {
+    public func query(sql:String, parameters:Any...)->[SQLiteRow] {
         NSLog("SQLiteDB:\(sql)")
         guard self.db != nil else {
             return []

@@ -4,14 +4,34 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AWSQLiteDB 2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>AWSQLiteDB.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>AWSQLiteDBFramework.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>682801C11C16B10200DC60BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>682801CA1C16B10200DC60BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>68A4785F1C15DAC700E1AC93</key>
 		<dict>
 			<key>primary</key>
