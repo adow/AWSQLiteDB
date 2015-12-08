@@ -120,6 +120,7 @@ class SQLiteDB {
         self.close()
     }
     
+    /// 设置一个全局共享的数据库
     class func setupSharedDBPath(path:String) throws ->SQLiteDB!{
         if sharedDB != nil {
             throw SQLiteDBError.SharedDBIsNotNilError
@@ -127,7 +128,7 @@ class SQLiteDB {
         sharedDB = SQLiteDB(path: path)
         return sharedDB!
     }
-    
+    /// 打开数据库
     private func open() throws ->Bool {
         guard let dbPath = self.dbPath else {
             throw SQLiteDBError.DBPathIsNilError

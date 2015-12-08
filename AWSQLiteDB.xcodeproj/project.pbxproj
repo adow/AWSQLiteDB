@@ -398,6 +398,7 @@
 				68A4787F1C15DAC700E1AC93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		68A478801C15DAC700E1AC93 /* Build configuration list for PBXNativeTarget "AWSQLiteDBTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +407,7 @@
 				68A478821C15DAC700E1AC93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
