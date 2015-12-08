@@ -89,21 +89,48 @@ struct SQLiteColumn {
 }
 
 // MARK: - SQLiteDB
+enum SQLiteDBError:ErrorType {
+    case SharedDBIsNotNilError
+    case DBPathIsNilError
+}
 class SQLiteDB {
+    static var sharedDB : SQLiteDB!
     private var db : COpaquePointer
     private var dbPath :String?
     typealias SQLiteRow = [String:SQLiteColumn]
+    /// Do not use this
+    private init (){
+        self.dbPath = nil
+        self.db = nil
+        do {
+            try self.open()
+        }
+        catch { }
+    }
     init(path:String? = nil) {
         self.dbPath = path
         self.db = nil
+        do {
+            try self.open()
+        }
+        catch { }
+    
     }
     deinit {
         self.close()
     }
-    func open()->Bool {
+    
+    class func setupSharedDBPath(path:String) throws ->SQLiteDB!{
+        if sharedDB != nil {
+            throw SQLiteDBError.SharedDBIsNotNilError
+        }
+        sharedDB = SQLiteDB(path: path)
+        return sharedDB!
+    }
+    
+    private func open() throws ->Bool {
         guard let dbPath = self.dbPath else {
-            NSLog("SQLiteDB:dbPath is nil")
-            return false
+            throw SQLiteDBError.DBPathIsNilError
         }
         let result = sqlite3_open(dbPath, &self.db)
         if result != SQLITE_OK {
@@ -144,7 +171,7 @@ class SQLiteDB {
     }
     // MARK: api
     /// 最后插入的一条数据的 id
-    private var lastInsertedRowID:Int64 {
+    var lastInsertedRowID:Int64 {
         return sqlite3_last_insert_rowid(self.db)
     }
     /// 绑定值
@@ -314,7 +341,6 @@ class SQLiteDB {
 }
 // MARK: - String
 extension String {
-    
     internal func indexOf(sub: String) -> Int? {
         var pos: Int?
         
