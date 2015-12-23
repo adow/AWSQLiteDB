@@ -9,5 +9,4 @@
 #ifndef AWSQLiteDBFramework_Bridging_Header_h
 #define AWSQLiteDBFramework_Bridging_Header_h
 
-#import "sqlite3.h"
 #endif /* AWSQLiteDBFramework_Bridging_Header_h */

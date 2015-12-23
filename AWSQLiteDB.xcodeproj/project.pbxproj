@@ -12,6 +12,7 @@
 		682801D81C16B10200DC60BD /* AWSQLiteDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 682801C21C16B10200DC60BD /* AWSQLiteDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		682801E01C16B15700DC60BD /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A478831C15DB5100E1AC93 /* libsqlite3.0.tbd */; };
 		682801E41C16B86900DC60BD /* AWSQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682801E31C16B86900DC60BD /* AWSQLiteDB.swift */; };
+		682801E61C16CECE00DC60BD /* AWSQLiteDBFramework-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 682801E21C16B2BC00DC60BD /* AWSQLiteDBFramework-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68A478641C15DAC700E1AC93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A478631C15DAC700E1AC93 /* AppDelegate.swift */; };
 		68A478661C15DAC700E1AC93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A478651C15DAC700E1AC93 /* ViewController.swift */; };
 		68A478691C15DAC700E1AC93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A478671C15DAC700E1AC93 /* Main.storyboard */; };
@@ -71,7 +72,6 @@
 		68A478781C15DAC700E1AC93 /* AWSQLiteDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSQLiteDBTests.swift; sourceTree = "<group>"; };
 		68A4787A1C15DAC700E1AC93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68A478831C15DB5100E1AC93 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		68A478851C15DB7300E1AC93 /* AWSQLiteDB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSQLiteDB-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,6 @@
 				68A4786A1C15DAC700E1AC93 /* Assets.xcassets */,
 				68A4786C1C15DAC700E1AC93 /* LaunchScreen.storyboard */,
 				68A4786F1C15DAC700E1AC93 /* Info.plist */,
-				68A478851C15DB7300E1AC93 /* AWSQLiteDB-Bridging-Header.h */,
 			);
 			path = AWSQLiteDB;
 			sourceTree = "<group>";
@@ -174,6 +173,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				682801E61C16CECE00DC60BD /* AWSQLiteDBFramework-Bridging-Header.h in Headers */,
 				682801C51C16B10200DC60BD /* AWSQLiteDBFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +369,7 @@
 		682801D91C16B10300DC60BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -377,10 +378,11 @@
 				INFOPLIST_FILE = AWSQLiteDBFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/AWSQLiteDBFramework/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDBFramework;
 				PRODUCT_NAME = AWSQLiteDB;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AWSQLiteDBFramework/AWSQLiteDBFramework-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -390,6 +392,7 @@
 		682801DA1C16B10300DC60BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -398,10 +401,11 @@
 				INFOPLIST_FILE = AWSQLiteDBFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/AWSQLiteDBFramework/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDBFramework;
 				PRODUCT_NAME = AWSQLiteDB;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AWSQLiteDBFramework/AWSQLiteDBFramework-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -498,7 +502,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AWSQLiteDB/AWSQLiteDB-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -511,7 +515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = adow.AWSQLiteDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AWSQLiteDB/AWSQLiteDB-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
@@ -549,6 +553,7 @@
 				682801DA1C16B10300DC60BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		68A4785B1C15DAC700E1AC93 /* Build configuration list for PBXProject "AWSQLiteDB" */ = {
 			isa = XCConfigurationList;

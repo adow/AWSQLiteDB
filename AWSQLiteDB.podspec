@@ -9,18 +9,20 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/adow/AWSQLiteDB"
-  s.screenshots  = "https://raw.githubusercontent.com/onevcat/Kingfisher/master/images/logo.png"
 
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
   s.authors            = { "adow" => "reynoldqin@gmail.com" }
-  s.social_media_url   = "http://twitter.com/reynoldqin"
+  s.social_media_url   = "https://twitter.com/reynoldqin"
 
   s.ios.deployment_target = "8.0"
-
-  s.source       = { :git => "git@github.com:adow/AWSQLiteDB.git", :tag => s.version }
-  s.source_files  = ["AWSQLiteDB/SQLiteDB.swift"]
+  s.module_name = s.name
+  s.module_map = "AWSQLiteDBFramework/module.modulemap"
+  s.source       = { :git => "https://github.com/adow/AWSQLiteDB.git", :tag => s.version }
+  s.source_files  = "AWSQLiteDBFramework/*.{h,swift}"
   s.requires_arc = true
-  s.framework = "libsqlite3.0"
-
+  s.framework = "Foundation"
+  s.library = "sqlite3"
 end
+
+
