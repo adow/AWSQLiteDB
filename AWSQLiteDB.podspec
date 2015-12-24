@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AWSQLiteDB"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "A SQLiteDB wrapper written in Swift 2.0"
 
   s.description  = <<-DESC
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
   s.authors            = { "adow" => "reynoldqin@gmail.com" }
-  s.social_media_url   = "https://twitter.com/reynoldqin"
+  s.social_media_url   = "https://github.com/adow"
 
   s.ios.deployment_target = "8.0"
   s.module_name = s.name
