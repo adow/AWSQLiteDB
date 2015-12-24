@@ -197,7 +197,6 @@ public class SQLiteDB {
     }
     /// 执行修改语句
     public func execute(sql:String, parameters:Any...) -> Bool {
-        NSLog("SQLiteDB:\(sql)")
         guard self.db != nil else {
             return false
         }
@@ -229,7 +228,6 @@ public class SQLiteDB {
     }
     /// 执行查询语句
     public func query(sql:String, parameters:Any...)->[SQLiteRow] {
-        NSLog("SQLiteDB:\(sql)")
         guard self.db != nil else {
             return []
         }

@@ -9,66 +9,47 @@
 import UIKit
 import AWSQLiteDB
 
-let SQLITE_STATIC = unsafeBitCast(0, sqlite3_destructor_type.self)
-let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
-
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.testSharedDB()
+//        self.testSharedDB()
+        self.testDB()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    private lazy var db_filename : String = "\(NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0])/test.db"
 }
 extension ViewController {
-    private func testSQLiteDB(){
-        let cache_dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
-        let db_filename = "\(cache_dir)/sql.db"
-        NSLog("db_filename:%@", db_filename)
-        
-        let db = SQLiteDB(path: db_filename)
-        let sql_createtable = "create table test (id INTEGER PRIMARY KEY AUTOINCREMENT, name CHAR(32) NOT NULL)"
-        var result = db.execute(sql_createtable)
-        print("\(result)")
-        let sql_insert = "insert into test (id,name) values (?,?)"
-        result = db.execute(sql_insert, parameters:9, "adow")
-        print("\(result)")
-        let sql_select = "select * from test"
-        let rows = db.query(sql_select)
-        for r in rows {
-            let id = r["id"]!.value!.integer!
-            let name = r["name"]!.value!.string!
-            print("\(id):\(name)")
-        }
-        let sql_select_2 = "select * from test"
-        db.execute(sql_select_2)
-    }
-    private func testSharedDB(){
-        let cache_dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
-        let db_filename = "\(cache_dir)/sql.db"
-        NSLog("db_filename:%@", db_filename)
+    private func testDB(){
+        /// Open database, which will be created if not existed
         guard let _ = try? SQLiteDB.setupSharedDBPath(db_filename) else {
+            NSLog("open db failed")
             return
         }
-        let sql_createtable = "create table test (id INTEGER PRIMARY KEY AUTOINCREMENT, name CHAR(32) NOT NULL)"
-        var result = SQLiteDB.sharedDB.execute(sql_createtable)
-        print("\(result)")
-        let sql_insert = "insert into test (id,name) values (?,?)"
-        result = SQLiteDB.sharedDB.execute(sql_insert, parameters:9, "adow")
-        print("\(result)")
-        let sql_select = "select * from test"
-        let rows = SQLiteDB.sharedDB.query(sql_select)
+        /// create table
+        var sql = "create table test (id INTEGER PRIMARY KEY AUTOINCREMENT, name CHAR(32) NOT NULL)"
+        print("create table:\(SQLiteDB.sharedDB.execute(sql))")
+        /// insert
+        sql = "insert into test (id,name) values (?,?)"
+        var result = SQLiteDB.sharedDB.execute(sql, parameters:9, "adow")
+        print("insert:\(result)")
+        /// update 
+        sql = "update test set name=? where id =?"
+        result = SQLiteDB.sharedDB.execute(sql, parameters: "reynold qin",9)
+        print("update:\(result)")
+        /// select 
+        sql = "select * from test"
+        let rows = SQLiteDB.sharedDB.query(sql)
         for r in rows {
             let id = r["id"]!.value!.integer!
             let name = r["name"]!.value!.string!
             print("\(id):\(name)")
         }
-        let sql_select_2 = "select * from test"
-        SQLiteDB.sharedDB.execute(sql_select_2)   
+        
     }
 }
