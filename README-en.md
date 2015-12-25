@@ -1,33 +1,31 @@
 # AWSQLiteDB
 
-[README in English](README-en.md)
-
 AWSQLiteDB a simple wrapper for libsqlite3.0 in Swift
 
-## 安装
+## Installing
 
 ### Carthage
 
-`Carthage` 是一个去中心化的包管理工具。
+Carthage is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
 
-安装 Carthage
+You can install Carthage with Homebrew using the following command:
 
 	$ brew update
 	$ brew install carthage
 	
-集成 AWSQLiteDB 到 iOS 项目
+Buid for iOS	
+	
+1. Create a Cartfile that lists the frameworks you’d like to use in your project.
 
-1. 在项目中创建 `Cartfile` 文件，并添加下面内容
-
-		git "https://github.com/adow/AWSQLiteDB.git" >= 0.1.2
-		
-2. 运行 `Carthage update`, 获取 AWSQLiteDB;
-3. 拖动 `Carthage/Build/iOS` 下面的 `AWSQLiteDB.framwork` 到项目 `Targets`, `General` 设置标签的 `Linked Frameworks and Linraries` 中；
-4. 在 `Targes` 的 `Build Phases` 设置中，点击 `+` 按钮，添加 `New Run Script Phase` 来添加脚本:
+		git "git@github.com:adow/AWSQLiteDB.git" >= 0.1.2
+	
+2. Run `carthage update`. This will fetch dependencies into a Carthage/Checkouts folder, then build each one.
+3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop each framework you want to use from the Carthage/Build folder on disk.
+4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents:
 
 		/usr/local/bin/carthage copy-frameworks
 		
-	同时在下面的 `Input Files` 中添加:
+	and add the paths to the frameworks you want to use under “Input Files”, e.g.:
 
 		$(SRCROOT)/Carthage/Build/iOS/AWSQLiteDB.framework
 
@@ -39,41 +37,39 @@ AWSQLiteDB a simple wrapper for libsqlite3.0 in Swift
 	
 	pod 'AWSQLiteDB', '~> 0.1.2'
 
-### 手动安装
+### Manually
 
-#### 通过 Git Submodule 集成
+#### Git Submodule
 
-通过 Submodule 将 SecrecySwift 作为 Embedded Framework 添加到项目中。
+1. Make sure that your project is in Git repository;
+2. Add `AWSQLiteDB` as submodule;
 
-1. 首先确保项目已经在 git 仓库中;
-2. 添加 `AWSQLiteDB` 作为 Submodule:
+		git submodule add git@github.com:adow/AWSQLiteDB.git
+	
+3. Drag and drop `AWSQLiteDB.xcodeproj` to your project;
+4. On your application targets, `General` tab, `Embedded Binaries` setting, click `+` to add `AWSQLiteDB.framework`. You will find `AWSQLiteDB.framework` is also in `Build Phases` / `Link Binary with Libraries`.
 
-		git submodule add https://github.com/adow/AWSQLiteDB.git
+#### Or Use AWSQLiteDB.swift in your project (Compatible with iOS7)
 
-3. 在 Xcode 中打开项目，将 AWSQLiteDB.xcodeproj 拖放到你的项目的根目录下;
-4. 在你的项目下，选择 `Targets` , `General` 中添加 `Embedded Binaries`, 选择 `AWSQLiteDB.framework`, 确保 `Build Phases` 中的 `Link Binary with Libraries` 中有 `AWSQLiteDB.framework`;
-
-#### 或者直接使用 AWSQLiteDB.swift
-
-1. 复制 AWSQLiteDB.swift 到项目中
-2. 在项目的 `Targets` 的 `Build Phases` 的 `Link Binary with Libraries` 中添加 `libsqlite3.0.tbd`;
+1. Copy `AWSQLiteDB.swift` to your project;
+2. On your applicationtargets `Build Phases` tab, `Link Binary with Linbrries` setting, add `libsqlite3.0.tbd`;
 
 
-## 使用
+## Usage
 
-### 打开数据库
+### Open Database
 
 	let cache_dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
 	let db_filename = "\(cache_dir)/sql.db"
 	let db = SQLiteDB(path: db_filename)
-    
-### 关闭数据库
+	
+### Close Database
 
-SQLiteDB 实例被释放的时候会自动关闭数据库
-
+Connection will be close when SQLiteDB instance released.
+	
 	db.close()
 	
-### 打开单例的数据库
+### Use Shared Instance
 
 	let cache_dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
 	let db_filename = "\(cache_dir)/sql.db"
@@ -81,9 +77,9 @@ SQLiteDB 实例被释放的时候会自动关闭数据库
 	    return
 	}
 	
-### 执行 Execute
+### Execute
 
-创建表
+Create Table
 
 	var sql = "create table test (id INTEGER PRIMARY KEY AUTOINCREMENT, name CHAR(32) NOT NULL)"
 	print("create table:\(SQLiteDB.sharedDB.execute(sql))")
@@ -98,9 +94,9 @@ update
 
 	sql = "update test set name=? where id =?"
 	result = SQLiteDB.sharedDB.execute(sql, parameters: "reynold qin",9)
-	print("update:\(result)")
+	print("update:\(result)")	
 	
-### 查询 Query
+### Query
 
 	sql = "select * from test"
 	let rows = SQLiteDB.sharedDB.query(sql)
@@ -110,7 +106,7 @@ update
 	    print("\(id):\(name)")
 	}
 
-## 参考
+## References
 
 * [Accessing an SQLite Database in Swift](http://stackoverflow.com/questions/24102775/accessing-an-sqlite-database-in-swift)
 * [ SQLite3 C/C++ 开发接口简介（API函数）一、二、三](http://blog.csdn.net/u012485637/article/details/44486923)
