@@ -31,7 +31,7 @@ AWSQLiteDB a simple wrapper for libsqlite3.0 in Swift
 
 		$(SRCROOT)/Carthage/Build/iOS/AWSQLiteDB.framework
 
-### Cocoapods
+### CocoaPods
 
 	source 'https://github.com/CocoaPods/Specs.git'
 	platform :ios, '8.0'
